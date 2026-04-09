@@ -51,13 +51,13 @@ function injecterPortfolio() {
   const carousel = $('[data-portfolio-carousel]');
   if (!carousel) return;
   carousel.innerHTML = SITE.projets.map(({ titre, description, src, alt }) => `
-    <div class="min-w-[85vw] md:min-w-[45vw] snap-center group cursor-pointer">
-      <div class="relative aspect-[4/5] overflow-hidden rounded-xl mb-6">
+    <div class="min-w-[70vw] md:min-w-[30vw] snap-center group cursor-pointer">
+      <div class="relative aspect-[3/4] overflow-hidden rounded-xl mb-4">
         <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
              src="${src}" alt="${alt}" />
         <div class="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition-colors"></div>
       </div>
-      <h4 class="noto-serif text-2xl font-bold mb-2">${titre}</h4>
+      <h4 class="noto-serif text-lg font-bold mb-1">${titre}</h4>
       <p class="manrope text-sm text-on-surface-variant">${description}</p>
     </div>
   `).join('');
@@ -108,6 +108,18 @@ function initCarte() {
     .openPopup();
 }
 
+function injecterLegal() {
+  $$('[data-legal="proprietaire"]').forEach(el => el.textContent = SITE.legal.proprietaire);
+  $$('[data-legal="siret-label"]').forEach(el => el.textContent = "SIRET : " + SITE.legal.siret);
+  $$('[data-legal="adresse"]').forEach(el => el.textContent = SITE.legal.adresseLegale);
+  $$('[data-legal="hebergeur"]').forEach(el => el.textContent = SITE.legal.hebergeur);
+  // Email dans les mentions
+  $$('[data-contact-text="email"]').forEach(el => {
+    el.textContent = SITE.email;
+    el.href = SITE.emailHref;
+  });
+}
+
 
 // ── Init ──────────────────────────────────────────────
 
@@ -120,4 +132,5 @@ document.addEventListener('DOMContentLoaded', () => {
   initMenuMobile();
   initCarousel();
   initCarte();
+  injecterLegal();
 });

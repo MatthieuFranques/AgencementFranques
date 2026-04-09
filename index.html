@@ -49,30 +49,34 @@
   <!-- =====================================================
        COMPOSANT : NavBar
        ===================================================== -->
-  <nav class="bg-stone-50/80 dark:bg-stone-900/80 backdrop-blur-md fixed top-0 w-full z-50">
-    <div class="flex justify-between items-center w-full px-8 md:px-16 py-6">
+ <nav class="bg-stone-50/80 dark:bg-stone-900/80 backdrop-blur-md fixed top-0 w-full z-50">
+  <div class="flex justify-between items-center w-full px-8 md:px-16 py-6">
 
-      <div class="text-2xl font-serif tracking-tighter text-stone-800 noto-serif" data-site="nom"></div>
+  <img data-site="logo" src="" alt="Logo"
+       class="h-10 max-w-[160px] w-auto object-contain" />
 
-      <div class="hidden md:flex gap-12 items-center">
-        <a href="#apropos"   class="text-stone-500 hover:text-stone-800 transition-colors text-sm font-medium tracking-wide manrope">À Propos</a>
-        <a href="#portfolio" class="text-stone-500 hover:text-stone-800 transition-colors text-sm font-medium tracking-wide manrope">Réalisations</a>
-        <a href="#contact"   class="text-stone-500 hover:text-stone-800 transition-colors text-sm font-medium tracking-wide manrope">Contact</a>
-      </div>
+  <div class="hidden md:flex gap-12 items-center">
+    <a href="#apropos"   class="text-stone-500 hover:text-stone-800 transition-colors text-sm font-medium tracking-wide manrope">À Propos</a>
+    <a href="#portfolio" class="text-stone-500 hover:text-stone-800 transition-colors text-sm font-medium tracking-wide manrope">Réalisations</a>
+    <a href="#contact"   class="text-stone-500 hover:text-stone-800 transition-colors text-sm font-medium tracking-wide manrope">Contact</a>
+  </div>
 
-      <button id="mobile-menu-btn" class="md:hidden text-stone-800" aria-label="Ouvrir le menu">
-        <span class="material-symbols-outlined">menu</span>
-      </button>
-    </div>
+  <div class="flex items-center gap-4">
+    <div class="hidden md:block text-xl font-serif tracking-tighter text-stone-800 noto-serif" data-site="nom"></div>
+    <button id="mobile-menu-btn" class="md:hidden text-stone-800" aria-label="Ouvrir le menu">
+      <span class="material-symbols-outlined">menu</span>
+    </button>
+  </div>
 
-    <!-- Menu mobile (masqué par défaut) -->
-    <div id="mobile-nav" class="hidden md:hidden flex-col gap-6 px-8 pb-6 bg-stone-50">
-      <a href="#apropos"   class="text-stone-600 text-sm manrope">À Propos</a>
-      <a href="#portfolio" class="text-stone-600 text-sm manrope">Réalisations</a>
-      <a href="#contact"   class="text-stone-600 text-sm manrope">Contact</a>
-    </div>
+</div>
+
+  <!-- Menu mobile (masqué par défaut) -->
+  <div id="mobile-nav" class="hidden md:hidden flex-col gap-6 px-8 pb-6 bg-stone-50">
+    <a href="#apropos"   class="text-stone-600 text-sm manrope">À Propos</a>
+    <a href="#portfolio" class="text-stone-600 text-sm manrope">Réalisations</a>
+    <a href="#contact"   class="text-stone-600 text-sm manrope">Contact</a>
+  </div>
   </nav>
-
 
   <!-- =====================================================
        COMPOSANT : Hero
@@ -80,7 +84,7 @@
   <header class="relative min-h-screen flex items-center pt-24 overflow-hidden">
     <div class="absolute inset-0 z-0">
       <img class="w-full h-full object-cover grayscale-[20%] contrast-[110%]"
-           src="assets/images/hero.jpg"
+                src="assets/images/terrace2.JPG"
            alt="Vue d'ensemble d'un appartement rénové" />
       <div class="absolute inset-0 bg-gradient-to-r from-surface via-surface/40 to-transparent"></div>
     </div>
@@ -101,6 +105,7 @@
           <span class="material-symbols-outlined text-sm">arrow_forward</span>
         </a>
       </div>
+
     </div>
   </header>
 
@@ -142,8 +147,7 @@
 
     <div class="px-8 md:px-16 mb-16 flex justify-between items-end">
       <div>
-        <span class="manrope text-xs tracking-[0.3em] uppercase text-primary font-bold mb-4 block">Portfolio</span>
-        <h2 class="noto-serif text-4xl md:text-5xl font-bold">Nos Réalisations</h2>
+        <h2 class="noto-serif text-4xl md:text-5xl font-bold">Mes Réalisations</h2>
       </div>
       <div class="hidden md:flex gap-4">
         <button data-carousel="prev"
@@ -211,20 +215,78 @@
     </div>
   </section>
 
+  <!-- =====================================================
+     COMPOSANT : Mentions légales (masqué par défaut)
+     ===================================================== -->
+  <div id="mentions-legales" class="hidden bg-surface py-24">
+    <div class="container mx-auto px-8 md:px-16 max-w-3xl">
 
+      <div class="flex justify-between items-center mb-16">
+        <h2 class="noto-serif text-4xl font-bold">Mentions légales</h2>
+        <button onclick="document.getElementById('mentions-legales').classList.add('hidden')"
+                class="manrope text-sm text-on-surface-variant hover:text-on-surface transition-colors flex items-center gap-2">
+          <span class="material-symbols-outlined text-base">close</span>
+          Fermer
+        </button>
+      </div>
+
+      <div class="space-y-12 manrope text-on-surface-variant leading-relaxed">
+
+        <div>
+          <h3 class="noto-serif text-xl font-bold text-on-surface mb-4">Éditeur du site</h3>
+          <p data-legal="proprietaire"></p>
+          <p data-legal="siret-label"></p>
+          <p data-legal="adresse"></p>
+          <p>Contact : <a data-contact="email-href" class="text-primary hover:underline" data-contact-text="email"></a></p>
+        </div>
+
+        <div>
+          <h3 class="noto-serif text-xl font-bold text-on-surface mb-4">Hébergement</h3>
+          <p data-legal="hebergeur"></p>
+        </div>
+
+        <div>
+          <h3 class="noto-serif text-xl font-bold text-on-surface mb-4">Politique de confidentialité</h3>
+          <p>Ce site vitrine ne collecte aucune donnée personnelle de manière automatique. Aucun cookie, aucun traceur, aucun outil d'analyse n'est utilisé.</p>
+          <p class="mt-4">Les seules interactions possibles sont les clics sur le numéro de téléphone et l'adresse email, qui ouvrent les applications natives de votre appareil. Aucune donnée n'est transmise ni stockée par ce site.</p>
+          <p class="mt-4">Conformément au RGPD et à la loi Informatique et Libertés, vous disposez d'un droit d'accès, de rectification et de suppression de vos données en contactant : <a data-contact="email-href" class="text-primary hover:underline" data-contact-text="email"></a></p>
+        </div>
+
+        <div>
+          <h3 class="noto-serif text-xl font-bold text-on-surface mb-4">Propriété intellectuelle</h3>
+          <p>L'ensemble du contenu de ce site (textes, images, logo) est la propriété exclusive de <span data-legal="proprietaire"></span>. Toute reproduction est interdite sans autorisation préalable.</p>
+        </div>
+
+      </div>
+    </div>
+  </div>
   <!-- =====================================================
        COMPOSANT : Footer
        ===================================================== -->
   <footer class="bg-stone-100 w-full border-t border-stone-200/20">
-    <div class="flex flex-col md:flex-row justify-between items-center w-full px-8 py-12 gap-6">
-      <div class="text-lg font-serif text-stone-800 noto-serif" data-site="nom"></div>
-      <div class="flex gap-8">
-        <a data-contact="telephone-href" class="manrope text-xs tracking-widest uppercase text-stone-500 hover:text-[#825E3E] transition-all">Tél</a>
-        <a data-contact="email-href"     class="manrope text-xs tracking-widest uppercase text-stone-500 hover:text-[#825E3E] transition-all">Email</a>
-      </div>
-      <div class="manrope text-xs tracking-widest uppercase text-stone-500" data-site="copyright"></div>
+  <div class="flex flex-col md:flex-row justify-between items-center w-full px-8 py-12 gap-6">
+    <div class="text-lg font-serif text-stone-800 noto-serif" data-site="nom"></div>
+    <div class="flex gap-8">
+      <a data-contact="telephone-href" class="manrope text-xs tracking-widest uppercase text-stone-500 hover:text-[#825E3E] transition-all">Tél</a>
+      <a data-contact="email-href"     class="manrope text-xs tracking-widest uppercase text-stone-500 hover:text-[#825E3E] transition-all">Email</a>
     </div>
-  </footer>
+    <div class="flex flex-col md:flex-row items-center gap-4">
+      <div class="manrope text-xs tracking-widest uppercase text-stone-500" data-site="copyright"></div>
+      <span class="hidden md:block text-stone-300">|</span>
+      <a href="#mentions-legales"
+         onclick="document.getElementById('mentions-legales').classList.remove('hidden')"
+         class="manrope text-xs tracking-widest uppercase text-stone-500 hover:text-[#825E3E] transition-all">
+        Mentions légales
+      </a>
+      <span class="hidden md:block text-stone-300">|</span>
+      <a href="#mentions-legales"
+         onclick="document.getElementById('mentions-legales').classList.remove('hidden')"
+         class="manrope text-xs tracking-widest uppercase text-stone-500 hover:text-[#825E3E] transition-all">
+        Confidentialité
+      </a>
+    </div>
+  </div>
+</footer>
 
 
   <!-- =====================================================
