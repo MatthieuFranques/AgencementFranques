@@ -8,16 +8,16 @@ const SITE = {
   copyright: "© 2026 Agencement Franques",
 
   // --- Contact ---
-  telephone:     "+33 6 00 00 00 00",
-  telephoneHref: "tel:+33600000000",
+  telephone:     "06 72 13 05 20",
+  telephoneHref: "tel:+33672130520",
   email:         "agencement.franques@gmail.com",
   emailHref:     "mailto:agencement.franques@gmail.com",
   adresse:       "Aveyron, France",
   
   legal: {
-  proprietaire:  "Prénom Nom",        // nom de l'artisan
+  proprietaire:  "Christophe Franques",
   siret:         "XXX XXX XXX XXXXX",
-  adresseLegale: "XX rue ..., 12340 Bezonnes, France",
+  adresseLegale: "12340 Bezonnes, France",
   hebergeur:     "Vercel Inc., 340 Pine Street, San Francisco, CA 94104, USA",
   },
   // --- Réseaux sociaux ---

@@ -7,8 +7,11 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Meta tags A ENLEVER DES QUE LE SITE EST EN LIGNE -->
+  <meta name="robots" content="noindex">
   <title>Agencement Franques</title>
-
+  <!-- Canonical URL -->
+  <!-- <link rel="canonical" href="https://www.ton-futur-nom-de-domaine.fr/" /> -->
   <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
@@ -52,45 +55,39 @@
        COMPOSANT : NavBar
        ===================================================== -->
   <nav class="bg-stone-50/90 backdrop-blur-md fixed top-0 w-full z-50 border-b border-stone-200/40">
-    <div class="flex justify-between items-center w-full px-6 md:px-16 py-4">
+  <div class="flex justify-between md:justify-start items-center w-full px-6 md:px-16 py-4 md:gap-16">
 
-      <!-- Logo (gauche) -->
-      <img data-site="logo" src="" alt="Logo"
-           class="h-10 max-w-[140px] w-auto object-contain" />
+    <img data-site="logo" 
+         src="assets/logo.png"
+         class="h-10 lg:h-16 max-w-[140px] lg:max-w-[220px] w-auto object-contain transition-all" 
+         alt="Logo" />
 
-      <!-- Liens desktop (centre) -->
-      <div class="hidden md:flex gap-10 items-center">
-        <a href="#apropos"    class="text-stone-500 hover:text-stone-800 transition-colors text-sm font-medium tracking-wide manrope">À Propos</a>
-        <a href="#expertises" class="text-stone-500 hover:text-stone-800 transition-colors text-sm font-medium tracking-wide manrope">Expertises</a>
-        <a href="#portfolio"  class="text-stone-500 hover:text-stone-800 transition-colors text-sm font-medium tracking-wide manrope">Réalisations</a>
-        <a href="#contact"    class="text-stone-500 hover:text-stone-800 transition-colors text-sm font-medium tracking-wide manrope">Contact</a>
-      </div>
-
-      <!-- Nom + burger (droite) -->
-      <div class="flex items-center gap-4">
-        <!-- Burger visible sur mobile ET tablette (< md) -->
-        <button id="mobile-menu-btn"
-                class="md:hidden flex flex-col justify-center items-center w-10 h-10 gap-1.5"
-                aria-label="Ouvrir le menu" aria-expanded="false">
-          <span class="burger-line block w-6 h-0.5 bg-stone-800 transition-all duration-300"></span>
-          <span class="burger-line block w-6 h-0.5 bg-stone-800 transition-all duration-300"></span>
-          <span class="burger-line block w-6 h-0.5 bg-stone-800 transition-all duration-300"></span>
-        </button>
-      </div>
-
+    <div class="hidden md:flex gap-10 items-center flex-1">
+      <a href="#apropos"    class="text-stone-600 hover:text-stone-900 transition-colors text-sm lg:text-base font-bold tracking-widest manrope uppercase">À Propos</a>
+      <a href="#expertises" class="text-stone-600 hover:text-stone-900 transition-colors text-sm lg:text-base font-bold tracking-widest manrope uppercase">Expertises</a>
+      <a href="#portfolio"  class="text-stone-600 hover:text-stone-900 transition-colors text-sm lg:text-base font-bold tracking-widest manrope uppercase">Réalisations</a>
+      <a href="#contact"    class="text-stone-600 hover:text-stone-900 transition-colors text-sm lg:text-base font-bold tracking-widest manrope uppercase">Contact</a>
     </div>
 
-    <!-- Menu mobile — plein écran -->
-    <div id="mobile-nav"
-     class="hidden md:hidden flex-col bg-stone-50 border-t border-stone-200/40 px-6 pb-8 pt-4">
-  
-      <a href="#apropos"    class="py-4 border-b border-stone-100 text-stone-700 text-lg manrope font-medium w-full block">À Propos</a>
-      <a href="#expertises" class="py-4 border-b border-stone-100 text-stone-700 text-lg manrope font-medium w-full block">Expertises</a>
-      <a href="#portfolio"  class="py-4 border-b border-stone-100 text-stone-700 text-lg manrope font-medium w-full block">Réalisations</a>
-      <a href="#contact"    class="py-4 text-stone-700 text-lg manrope font-medium w-full block">Contact</a>
-
+    <div class="flex items-center">
+      <button id="mobile-menu-btn"
+              class="md:hidden flex flex-col justify-center items-center w-10 h-10 gap-1.5"
+              aria-label="Ouvrir le menu">
+        <span class="burger-line block w-6 h-0.5 bg-stone-800 transition-all duration-300"></span>
+        <span class="burger-line block w-6 h-0.5 bg-stone-800 transition-all duration-300"></span>
+        <span class="burger-line block w-6 h-0.5 bg-stone-800 transition-all duration-300"></span>
+      </button>
     </div>
-  </nav>
+  </div>
+
+  <div id="mobile-nav"
+       class="hidden flex-col items-end bg-stone-50/95 backdrop-blur-sm border-t border-stone-200/40 px-6 pb-6 pt-2 w-full"> 
+    <a href="#apropos"    class="py-4 text-stone-700 text-lg manrope font-medium w-full text-right border-b border-stone-100/50">À Propos</a>
+    <a href="#expertises" class="py-4 text-stone-700 text-lg manrope font-medium w-full text-right border-b border-stone-100/50">Expertises</a>
+    <a href="#portfolio"  class="py-4 text-stone-700 text-lg manrope font-medium w-full text-right border-b border-stone-100/50">Réalisations</a>
+    <a href="#contact"    class="py-4 text-stone-700 text-lg manrope font-medium w-full text-right">Contact</a>
+  </div>
+</nav>
 
 
   <!-- =====================================================
