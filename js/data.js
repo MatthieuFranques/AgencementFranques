@@ -26,6 +26,7 @@ const SITE = {
   // --- Section "À propos" ---
   apropos: {
     titre:    "Mon histoire",
+    photo: "assets/images/portrait.jpg",
     textes: [
       "Notre bureau d'études et nos artisans partenaires interviennent pour repenser intégralement vos volumes. De la redistribution des pièces à la pose de finitions haut de gamme, nous assurons une gestion de projet fluide.",
       "Nous allions la rigueur technique du bâtiment à l'élégance de l'ébénisterie pour créer des intérieurs cohérents, fonctionnels et durables."
@@ -33,10 +34,11 @@ const SITE = {
   },
   // --- Expertises (carte compétences) ---
   expertises: [
-    { categorie: "Habitat & Pièces d'Eau",  label: "Cuisine & Salle de Bain" },
     { categorie: "Second Œuvre",             label: "Rénovation Globale (Peinture, Placo, Plomberie)" },
     { categorie: "Extérieurs",               label: "Terrasse & Volets Roulants" },
     { categorie: "Conception",               label: "Mobilier Sur-Mesure" },
+    { categorie: "Habitat & Pièces d'Eau",  label: "Cuisine & Salle de Bain" },
+
   ],
 
   // --- Portfolio ---
@@ -54,10 +56,22 @@ const SITE = {
       alt: "Salle de bain rénovée avec carrelage texturé, douche à l'italienne et meuble vasque sur mesure",
     },
     {
-      titre:       "Terrasse & Outdoor",
+      titre:       "Terrasse extérieure",
       description: "Bois exotique & Aménagement paysager",
       src: "assets/images/terrace.JPG",
       alt: "Grande terrasse en bois",
+    },
+    {
+      titre:       "Escalier d'angle sur-mesure",
+      description: "En bois",
+      src: "assets/images/escalier.JPG",
+      alt: "escalier d'angle sur-mesure en bois",
+    },
+    {
+      titre:       "Volet en bois sur-mesure",
+      description: "",
+      src: "assets/images/volet.JPG",
+      alt: "Grande volet blanc en bois sur-mesure",
     },
   ],
   carte: {

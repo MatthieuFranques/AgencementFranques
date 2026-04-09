@@ -32,6 +32,7 @@ function injecterContact() {
 
 function injecterAPropos() {
   setHTML('[data-apropos="titre"]', SITE.apropos.titre);
+  $$('[data-apropos="photo"]').forEach(el => el.src = SITE.apropos.photo); // ← ajouter
   const container = $('[data-apropos="textes"]');
   if (container) container.innerHTML = SITE.apropos.textes.map(t => `<p>${t}</p>`).join('');
 }
@@ -40,9 +41,9 @@ function injecterExpertises() {
   const container = $('[data-expertises]');
   if (!container) return;
   container.innerHTML = SITE.expertises.map(({ categorie, label }) => `
-    <div class="flex flex-col gap-2">
-      <span class="manrope text-xs font-semibold text-outline tracking-wider uppercase">${categorie}</span>
-      <span class="noto-serif text-2xl text-on-surface">${label}</span>
+    <div class="bg-surface p-8 rounded-xl border border-outline/10">
+      <span class="manrope text-xs font-semibold text-outline tracking-wider uppercase block mb-3">${categorie}</span>
+      <span class="noto-serif text-xl text-on-surface">${label}</span>
     </div>
   `).join('');
 }
