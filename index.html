@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html class="light" lang="fr">
+
+<!-- =====================================================
+     HEAD
+     ===================================================== -->
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Agencement Intérieur Global - Portfolio | LUMBER & GRAIN</title>
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+
+  <!-- Google Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&family=Manrope:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- Styles locaux -->
+  <link rel="stylesheet" href="assets/css/main.css" />
+
+  <!-- Tailwind config -->
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "tertiary-fixed":              "#ffdcc4",
+            "on-primary":                  "#ffffff",
+            "inverse-surface":             "#2f312f",
+            "surface":                     "#faf9f6",
+            "on-tertiary-container":       "#ffddc7",
+            "tertiary":                    "#69462a",
+            "surface-bright":              "#faf9f6",
+            "surface-container":           "#efeeeb",
+            "surface-variant":             "#e3e2e0",
+            "on-secondary-fixed":          "#1b1c1c",
+            "inverse-primary":             "#ecbe97",
+            "on-error":                    "#ffffff",
+            "secondary":                   "#5f5e5e",
+            "secondary-fixed-dim":         "#c8c6c6",
+            "outline-variant":             "#d4c4b8",
+            "on-tertiary":                 "#ffffff",
+            "on-secondary-fixed-variant":  "#474747",
+            "on-primary-fixed":            "#2d1600",
+            "surface-container-high":      "#e9e8e5",
+            "on-secondary":                "#ffffff",
+            "secondary-fixed":             "#e4e2e1",
+            "background":                  "#faf9f6",
+            "inverse-on-surface":          "#f2f1ee",
+            "primary":                     "#674628",
+            "primary-fixed":               "#ffdcc1",
+            "tertiary-container":          "#845d3f",
+            "error-container":             "#ffdad6",
+            "surface-container-low":       "#f4f3f1",
+            "on-error-container":          "#93000a",
+            "surface-container-highest":   "#e3e2e0",
+            "on-tertiary-fixed":           "#2f1501",
+            "on-tertiary-fixed-variant":   "#613f24",
+            "primary-container":           "#825e3e",
+            "on-surface":                  "#1a1c1a",
+            "on-primary-container":        "#ffdec4",
+            "primary-fixed-dim":           "#ecbe97",
+            "on-primary-fixed-variant":    "#604022",
+            "on-background":               "#1a1c1a",
+            "surface-tint":                "#7a5738",
+            "surface-dim":                 "#dbdad7",
+            "secondary-container":         "#e4e2e1",
+            "surface-container-lowest":    "#ffffff",
+            "on-surface-variant":          "#50453c",
+            "error":                       "#ba1a1a",
+            "tertiary-fixed-dim":          "#efbc98",
+            "outline":                     "#82756b",
+            "on-secondary-container":      "#656464"
+          },
+          borderRadius: {
+            DEFAULT: "0.25rem",
+            lg:      "1rem",
+            xl:      "1.5rem",
+            full:    "9999px"
+          },
+          fontFamily: {
+            headline: ["Noto Serif"],
+            body:     ["Manrope"],
+            label:    ["Manrope"]
+          }
+        }
+      }
+    };
+  </script>
+</head>
+
+<body class="bg-surface text-on-surface font-body selection:bg-primary-fixed selection:text-on-primary-fixed">
+
+
+  <!-- =====================================================
+       COMPOSANT : NavBar
+       ===================================================== -->
+  <nav class="bg-stone-50/80 dark:bg-stone-900/80 backdrop-blur-md fixed top-0 w-full z-50">
+    <div class="flex justify-between items-center w-full px-8 md:px-16 py-6 max-w-full mx-auto">
+
+      <!-- Logo -->
+      <div class="text-2xl font-serif tracking-tighter text-stone-800 dark:text-stone-100 noto-serif bold">
+        LUMBER &amp; GRAIN
+      </div>
+
+      <!-- Liens desktop -->
+      <div class="hidden md:flex gap-12 items-center">
+        <a href="#"          class="nav-link text-stone-500 dark:text-stone-400 hover:text-stone-800 dark:hover:text-stone-200 transition-colors text-sm font-medium tracking-wide manrope">À Propos</a>
+        <a href="#portfolio" class="nav-link text-stone-500 dark:text-stone-400 hover:text-stone-800 dark:hover:text-stone-200 transition-colors text-sm font-medium tracking-wide manrope">Réalisations</a>
+        <a href="#contact"   class="nav-link text-stone-500 dark:text-stone-400 hover:text-stone-800 dark:hover:text-stone-200 transition-colors text-sm font-medium tracking-wide manrope">Contact</a>
+        <button class="bg-primary px-6 py-2.5 rounded-lg text-white font-medium text-sm tracking-wide transition-all hover:bg-primary-container active:scale-[0.99] duration-400">
+          Consultation
+        </button>
+      </div>
+
+      <!-- Bouton menu mobile -->
+      <button id="mobile-menu-btn" class="md:hidden text-stone-800" aria-label="Ouvrir le menu">
+        <span class="material-symbols-outlined">menu</span>
+      </button>
+    </div>
+
+    <!-- Menu mobile (masqué par défaut) -->
+    <div id="mobile-nav" class="hidden md:hidden flex-col gap-6 px-8 pb-6 bg-stone-50 dark:bg-stone-900">
+      <a href="#"          class="text-stone-600 text-sm manrope">À Propos</a>
+      <a href="#portfolio" class="text-stone-600 text-sm manrope">Réalisations</a>
+      <a href="#contact"   class="text-stone-600 text-sm manrope">Contact</a>
+    </div>
+  </nav>
+
+
+  <!-- =====================================================
+       COMPOSANT : Hero
+       ===================================================== -->
+  <header class="relative min-h-screen flex items-center pt-24 overflow-hidden">
+
+    <!-- Image de fond -->
+    <div class="absolute inset-0 z-0">
+      <img
+        class="w-full h-full object-cover grayscale-[20%] contrast-[110%]"
+        src="https://lh3.googleusercontent.com/aida-public/AB6AXuD9bLlr3w4SDEZipUpMFqWNmDxp2-1a7I_t9PbUq1cCCBTIaLJoi03SVIOCvm3E138l8WggrhGy-Ur1dZ0Q_ln1D2VLL-tQXTkLwqBSMDnQfCWlmerMqgrp55NhndNbU2ZJ2Lx_veQTJPRrXZDjCbGBpMLOiEMHrIxpp3_oVNIs7jhB-Un2O9dE6YPNgc5hMAnSXo2Xl-0wNPF_um_zeq95rpzCrJpLPmJBcvfqqqZRjhczWDg_CaBN4vRc3p6-Z2BLpdmaJ2nSuY4"
+        alt="Vue d'ensemble d'un appartement rénové avec goût, mêlant bois clair, murs immaculés et éclairage design"
+      />
+      <div class="absolute inset-0 bg-gradient-to-r from-surface via-surface/40 to-transparent"></div>
+    </div>
+
+    <!-- Contenu -->
+    <div class="container mx-auto px-8 md:px-16 relative z-10">
+      <div class="max-w-2xl">
+        <span class="manrope text-sm tracking-[0.3em] uppercase text-primary font-bold mb-6 block">
+          Expert en Aménagement d'Espaces
+        </span>
+        <h1 class="noto-serif text-6xl md:text-8xl font-bold text-on-surface leading-[1.1] mb-8 tracking-tighter">
+          Rénover votre <br/>
+          <span class="text-primary italic">Intérieur</span>
+        </h1>
+        <p class="manrope text-lg text-on-surface-variant mb-12 max-w-md leading-relaxed">
+          Spécialiste de l'agencement global, nous transformons vos espaces de vie grâce à une maîtrise complète des métiers du second œuvre et du sur-mesure.
+        </p>
+        <div class="flex gap-4">
+          <a
+            href="#contact"
+            class="bg-primary text-on-primary px-8 py-4 rounded-lg font-medium text-sm tracking-wide transition-all hover:shadow-xl hover:shadow-primary/10 active:scale-95 duration-400 flex items-center gap-3"
+          >
+            Étudier mon projet
+            <span class="material-symbols-outlined text-sm">arrow_forward</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+  <!-- =====================================================
+       COMPOSANT : Présentation & Compétences
+       ===================================================== -->
+  <section class="py-32 bg-surface">
+    <div class="container mx-auto px-8 md:px-16">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
+
+        <!-- Texte -->
+        <div class="lg:col-span-5">
+          <h2 class="noto-serif text-4xl md:text-5xl font-bold mb-12 leading-tight">
+            Vision Globale &amp; <br/>Expertise d'Exécution
+          </h2>
+          <div class="space-y-8 manrope text-on-surface-variant leading-relaxed text-lg">
+            <p>
+              Notre bureau d'études et nos artisans partenaires interviennent pour repenser intégralement vos volumes. De la redistribution des pièces à la pose de finitions haut de gamme, nous assurons une gestion de projet fluide.
+            </p>
+            <p>
+              Nous allions la rigueur technique du bâtiment à l'élégance de l'ébénisterie pour créer des intérieurs cohérents, fonctionnels et durables.
+            </p>
+          </div>
+        </div>
+
+        <!-- Carte compétences -->
+        <div class="lg:col-span-6 lg:offset-1 bg-surface-container-low p-12 rounded-xl relative">
+          <div class="absolute -top-6 -right-6 w-32 h-32 bg-primary/5 rounded-full blur-3xl"></div>
+          <h3 class="manrope font-bold text-xs tracking-[0.2em] uppercase text-primary mb-12">Expertise Technique</h3>
+          <div class="space-y-12">
+
+            <div class="flex flex-col gap-2">
+              <span class="manrope text-xs font-semibold text-outline tracking-wider uppercase">Habitat &amp; Pièces d'Eau</span>
+              <span class="noto-serif text-2xl text-on-surface">Cuisine &amp; Salle de Bain</span>
+            </div>
+
+            <div class="flex flex-col gap-2">
+              <span class="manrope text-xs font-semibold text-outline tracking-wider uppercase">Second Œuvre</span>
+              <span class="noto-serif text-2xl text-on-surface">Rénovation Globale (Peinture, Placo, Plomberie)</span>
+            </div>
+
+            <div class="flex flex-col gap-2">
+              <span class="manrope text-xs font-semibold text-outline tracking-wider uppercase">Extérieurs</span>
+              <span class="noto-serif text-2xl text-on-surface">Terrasse &amp; Volets Roulants</span>
+            </div>
+
+            <div class="flex flex-col gap-2">
+              <span class="manrope text-xs font-semibold text-outline tracking-wider uppercase">Conception</span>
+              <span class="noto-serif text-2xl text-on-surface">Mobilier Sur-Mesure</span>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- =====================================================
+       COMPOSANT : Portfolio Carousel
+       ===================================================== -->
+  <section class="py-32 bg-surface-container-low overflow-hidden" id="portfolio">
+
+    <!-- En-tête -->
+    <div class="px-8 md:px-16 mb-16 flex justify-between items-end">
+      <div>
+        <span class="manrope text-xs tracking-[0.3em] uppercase text-primary font-bold mb-4 block">Portfolio</span>
+        <h2 class="noto-serif text-4xl md:text-5xl font-bold">Nos Réalisations</h2>
+      </div>
+      <!-- Flèches desktop -->
+      <div class="hidden md:flex gap-4">
+        <button id="carousel-prev" class="w-12 h-12 rounded-full border border-outline/20 flex items-center justify-center hover:bg-surface transition-colors" aria-label="Précédent">
+          <span class="material-symbols-outlined">west</span>
+        </button>
+        <button id="carousel-next" class="w-12 h-12 rounded-full border border-outline/20 flex items-center justify-center hover:bg-surface transition-colors" aria-label="Suivant">
+          <span class="material-symbols-outlined">east</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Défilement -->
+    <div id="portfolio-carousel" class="flex gap-8 overflow-x-auto hide-scrollbar px-8 md:px-16 pb-12 snap-x snap-mandatory">
+
+      <!-- Projet 1 : Cuisine -->
+      <div class="min-w-[85vw] md:min-w-[45vw] snap-center group cursor-pointer">
+        <div class="relative aspect-[4/5] overflow-hidden rounded-xl mb-6">
+          <img
+            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuBr5QZCUxb_OC0igfoApwcvwbQMlx2RfZNCFxKs1U9iM4Ghq39UzecJJDsuVCDBbqyypBrLMBtTvtTV-1s_BBucUir0etJMabnx2ZcGpbR1gk_7FMTvnn6pOs6-g2S7qz85AoX1MeUQVCcTzbLGshJfDK3TUvwDZfvLuT2h4CaElkBq_7-mJ6dQhEbaB8B7791a5OHF5jryTklRcpMRHQ9iEgorw3jcFePT3UxIoc8qzyKZs6Rzbe8HV7d2KDUXyTqKzjLAJ8UOrFc"
+            alt="Cuisine moderne minimaliste avec îlot central, façades en bois et plan de travail en pierre sombre"
+          />
+          <div class="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition-colors"></div>
+        </div>
+        <h4 class="noto-serif text-2xl font-bold mb-2">Cuisine Contemporaine</h4>
+        <p class="manrope text-sm text-on-surface-variant">Agencement complet &amp; Électroménager intégré</p>
+      </div>
+
+      <!-- Projet 2 : Salle de bain -->
+      <div class="min-w-[85vw] md:min-w-[45vw] snap-center group cursor-pointer">
+        <div class="relative aspect-[4/5] overflow-hidden rounded-xl mb-6">
+          <img
+            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuABM4sIPmGnoR-pnLyWsjtfIVpzmWRaJFHjOXBlPqiMWVlvPVwKjf6FR7u0VrIAcNrKsC4n9IolTu8Q4V14RI1SgTjWd9nASMgQsZhkUyH7n4YgRTjOChKWW7AnlevhH9N_IxmLHRIPA86JA6kWBPmiRWPig-tNzfRO219_clPXTux-CC2SK7FTe7DWhAo1ev3MdjtHFS2z_VE4UsB9RpLnuOhSdqrY6SXtIJoW-JuQjJZMOp-B57nFv8zLP2Igkn19597UkNv_fIY"
+            alt="Salle de bain rénovée avec carrelage texturé, douche à l'italienne et meuble vasque sur mesure"
+          />
+          <div class="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition-colors"></div>
+        </div>
+        <h4 class="noto-serif text-2xl font-bold mb-2">Rénovation d'Eau</h4>
+        <p class="manrope text-sm text-on-surface-variant">Optimisation d'espace &amp; Finitions marbre</p>
+      </div>
+
+      <!-- Projet 3 : Terrasse -->
+      <div class="min-w-[85vw] md:min-w-[45vw] snap-center group cursor-pointer">
+        <div class="relative aspect-[4/5] overflow-hidden rounded-xl mb-6">
+          <img
+            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuDdFVjEEBd8cgYQIy67XYPhQOIe5MpLkrJ93NtARUDOmxKXi79FMshe9qGoGw5ao7-Hwr-HJrDWB2HyIpDCr099hSaVvBG3eJQeeGmfSYuq6PNUhNgyZVrAb8WUyLQzt8vGweA8QlHo0i8MENHxFvgVbM1rjbrAlCWpUB0rBVwQKERXMMCJONweB25imYyuPnNBJuE5NtWX3CgLUdaag3ggejc4YxldZcfcPru1mO2LSUOWJaDsvFvehHTMNOb0ErW0-kdi_h6hk"
+            alt="Grande terrasse en bois exotique entourant une piscine, avec éclairage encastré"
+          />
+          <div class="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition-colors"></div>
+        </div>
+        <h4 class="noto-serif text-2xl font-bold mb-2">Terrasse &amp; Outdoor</h4>
+        <p class="manrope text-sm text-on-surface-variant">Bois exotique &amp; Aménagement paysager</p>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- =====================================================
+       COMPOSANT : Contact
+       ===================================================== -->
+  <section class="py-32 bg-surface" id="contact">
+    <div class="container mx-auto px-8 md:px-16">
+      <div class="max-w-4xl mx-auto text-center">
+
+        <h2 class="noto-serif text-5xl md:text-7xl font-bold mb-16">Parlons de votre rénovation</h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-24">
+          <a
+            href="tel:+33123456789"
+            class="group p-12 bg-surface-container rounded-xl transition-all hover:bg-primary-container hover:text-on-primary-container"
+          >
+            <span class="material-symbols-outlined text-4xl mb-6 block text-primary group-hover:text-on-primary-container">call</span>
+            <span class="manrope block text-xs tracking-widest uppercase mb-2 opacity-60">Téléphone</span>
+            <span class="noto-serif text-2xl font-bold">+33 1 23 45 67 89</span>
+          </a>
+          <a
+            href="mailto:contact@lumbergrain.com"
+            class="group p-12 bg-surface-container rounded-xl transition-all hover:bg-primary-container hover:text-on-primary-container"
+          >
+            <span class="material-symbols-outlined text-4xl mb-6 block text-primary group-hover:text-on-primary-container">mail</span>
+            <span class="manrope block text-xs tracking-widest uppercase mb-2 opacity-60">Email</span>
+            <span class="noto-serif text-2xl font-bold">contact@lumbergrain.com</span>
+          </a>
+        </div>
+
+        <div class="flex flex-col items-center gap-4">
+          <div class="flex items-center gap-3 text-on-surface-variant manrope">
+            <span class="material-symbols-outlined">location_on</span>
+            <span>Atelier &amp; Bureau d'études basés à Bordeaux, France</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- =====================================================
+       COMPOSANT : Footer
+       ===================================================== -->
+  <footer class="bg-stone-100 dark:bg-stone-950 w-full border-t border-stone-200/20">
+    <div class="flex flex-col md:flex-row justify-between items-center w-full px-8 py-12 gap-6 max-w-full mx-auto">
+      <div class="text-lg font-serif text-stone-800 dark:text-stone-200 noto-serif">LUMBER &amp; GRAIN</div>
+      <div class="flex gap-8">
+        <a href="tel:+33123456789"            class="manrope text-xs tracking-widest uppercase text-stone-500 dark:text-stone-400 hover:text-[#825E3E] transition-all duration-400">Tél</a>
+        <a href="mailto:contact@lumbergrain.com" class="manrope text-xs tracking-widest uppercase text-stone-500 dark:text-stone-400 hover:text-[#825E3E] transition-all duration-400">Email</a>
+        <a href="#"                            class="manrope text-xs tracking-widest uppercase text-stone-500 dark:text-stone-400 hover:text-[#825E3E] transition-all duration-400">Instagram</a>
+      </div>
+      <div class="manrope text-xs tracking-widest uppercase text-stone-500 dark:text-stone-400">
+        © 2025 Lumber &amp; Grain. Agencement d'Intérieur Global.
+      </div>
+    </div>
+  </footer>
+
+
+  <!-- Scripts -->
+  <script src="js/main.js"></script>
+</body>
+</html>
