@@ -15,6 +15,7 @@
   <link rel="stylesheet" href="assets/css/main.css" />
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
   <link rel="icon" type="image/png" href="assets/logo.png" />
+
   <script>
     tailwind.config = {
       darkMode: "class",
@@ -43,72 +44,84 @@
     };
   </script>
 </head>
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
 <body class="bg-surface text-on-surface font-body selection:bg-primary-fixed selection:text-on-primary-fixed">
 
 
   <!-- =====================================================
        COMPOSANT : NavBar
        ===================================================== -->
- <nav class="bg-stone-50/80 dark:bg-stone-900/80 backdrop-blur-md fixed top-0 w-full z-50">
-  <div class="flex justify-between items-center w-full px-8 md:px-16 py-6">
+  <nav class="bg-stone-50/90 backdrop-blur-md fixed top-0 w-full z-50 border-b border-stone-200/40">
+    <div class="flex justify-between items-center w-full px-6 md:px-16 py-4">
 
-  <img data-site="logo" src="" alt="Logo"
-       class="h-10 max-w-[160px] w-auto object-contain" />
+      <!-- Logo (gauche) -->
+      <img data-site="logo" src="" alt="Logo"
+           class="h-10 max-w-[140px] w-auto object-contain" />
 
-  <div class="hidden md:flex gap-12 items-center">
-    <a href="#apropos"   class="text-stone-500 hover:text-stone-800 transition-colors text-sm font-medium tracking-wide manrope">À Propos</a>
-    <a href="#portfolio" class="text-stone-500 hover:text-stone-800 transition-colors text-sm font-medium tracking-wide manrope">Réalisations</a>
-    <a href="#contact"   class="text-stone-500 hover:text-stone-800 transition-colors text-sm font-medium tracking-wide manrope">Contact</a>
-  </div>
+      <!-- Liens desktop (centre) -->
+      <div class="hidden md:flex gap-10 items-center">
+        <a href="#apropos"    class="text-stone-500 hover:text-stone-800 transition-colors text-sm font-medium tracking-wide manrope">À Propos</a>
+        <a href="#expertises" class="text-stone-500 hover:text-stone-800 transition-colors text-sm font-medium tracking-wide manrope">Expertises</a>
+        <a href="#portfolio"  class="text-stone-500 hover:text-stone-800 transition-colors text-sm font-medium tracking-wide manrope">Réalisations</a>
+        <a href="#contact"    class="text-stone-500 hover:text-stone-800 transition-colors text-sm font-medium tracking-wide manrope">Contact</a>
+      </div>
 
-  <div class="flex items-center gap-4">
-    <div class="hidden md:block text-xl font-serif tracking-tighter text-stone-800 noto-serif" data-site="nom"></div>
-    <button id="mobile-menu-btn" class="md:hidden text-stone-800" aria-label="Ouvrir le menu">
-      <span class="material-symbols-outlined">menu</span>
-    </button>
-  </div>
+      <!-- Nom + burger (droite) -->
+      <div class="flex items-center gap-4">
+        <div class="hidden md:block text-lg font-serif tracking-tighter text-stone-800 noto-serif" data-site="nom"></div>
+        <!-- Burger visible sur mobile ET tablette (< md) -->
+        <button id="mobile-menu-btn"
+                class="md:hidden flex flex-col justify-center items-center w-10 h-10 gap-1.5"
+                aria-label="Ouvrir le menu" aria-expanded="false">
+          <span class="burger-line block w-6 h-0.5 bg-stone-800 transition-all duration-300"></span>
+          <span class="burger-line block w-6 h-0.5 bg-stone-800 transition-all duration-300"></span>
+          <span class="burger-line block w-6 h-0.5 bg-stone-800 transition-all duration-300"></span>
+        </button>
+      </div>
 
-</div>
+    </div>
 
-  <!-- Menu mobile (masqué par défaut) -->
-  <div id="mobile-nav" class="hidden md:hidden flex-col gap-6 px-8 pb-6 bg-stone-50">
-    <a href="#apropos"   class="text-stone-600 text-sm manrope">À Propos</a>
-    <a href="#portfolio" class="text-stone-600 text-sm manrope">Réalisations</a>
-    <a href="#contact"   class="text-stone-600 text-sm manrope">Contact</a>
-  </div>
+    <!-- Menu mobile — plein écran -->
+    <div id="mobile-nav"
+         class="hidden md:hidden flex-col bg-stone-50 border-t border-stone-200/40 px-6 pb-8 pt-4 gap-0">
+      <a href="#apropos"    class="mobile-nav-link py-4 border-b border-stone-100 text-stone-700 text-base manrope font-medium">À Propos</a>
+      <a href="#expertises" class="mobile-nav-link py-4 border-b border-stone-100 text-stone-700 text-base manrope font-medium">Expertises</a>
+      <a href="#portfolio"  class="mobile-nav-link py-4 border-b border-stone-100 text-stone-700 text-base manrope font-medium">Réalisations</a>
+      <a href="#contact"    class="mobile-nav-link py-4 text-stone-700 text-base manrope font-medium">Contact</a>
+    </div>
   </nav>
+
 
   <!-- =====================================================
        COMPOSANT : Hero
        ===================================================== -->
-  <header class="relative min-h-screen flex items-center pt-24 overflow-hidden">
+  <header class="relative min-h-screen flex items-center pt-20 overflow-hidden">
     <div class="absolute inset-0 z-0">
       <img class="w-full h-full object-cover grayscale-[20%] contrast-[110%]"
-                src="assets/images/terrace2.JPG"
-           alt="Vue d'ensemble d'un appartement rénové" />
-      <div class="absolute inset-0 bg-gradient-to-r from-surface via-surface/40 to-transparent"></div>
+           src="assets/images/terrace2.JPG"
+           alt="Vue d'ensemble d'un intérieur rénové" />
+      <div class="absolute inset-0 bg-gradient-to-r from-surface via-surface/60 to-transparent"></div>
     </div>
 
-    <div class="container mx-auto px-8 md:px-16 relative z-10">
-      <div class="max-w-2xl">
-        <span class="manrope text-sm tracking-[0.3em] uppercase text-primary font-bold mb-6 block"
+    <div class="container mx-auto px-6 md:px-16 relative z-10">
+      <div class="max-w-xl">
+        <span class="manrope text-xs md:text-sm tracking-[0.3em] uppercase text-primary font-bold mb-4 md:mb-6 block"
               data-site="slogan"></span>
-        <h1 class="noto-serif text-6xl md:text-8xl font-bold text-on-surface leading-[1.1] mb-8 tracking-tighter">
+        <h1 class="noto-serif text-5xl md:text-7xl lg:text-8xl font-bold text-on-surface leading-[1.1] mb-6 md:mb-8 tracking-tighter">
           Rénover votre <br/>
           <span class="text-primary italic">Intérieur</span>
         </h1>
-        <p class="manrope text-lg text-on-surface-variant mb-12 max-w-md leading-relaxed"
+        <p class="manrope text-base md:text-lg text-on-surface-variant mb-8 md:mb-12 leading-relaxed"
            data-site="baseline"></p>
       </div>
-
     </div>
   </header>
 
-<!-- =====================================================
-     COMPOSANT : Présentation
-     ===================================================== -->
-<section class="py-32 bg-surface" id="apropos">
+
+  <!-- =====================================================
+       COMPOSANT : Présentation (Mon Histoire)
+       ===================================================== -->
+  <section class="py-32 bg-surface" id="apropos">
   <div class="container mx-auto px-8 md:px-16">
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
 
@@ -152,107 +165,109 @@
 </section>
 
 
-<!-- =====================================================
-     COMPOSANT : Expertises
-     ===================================================== -->
-<section class="py-32 bg-surface-container-low" id="expertises">
-  <div class="container mx-auto px-8 md:px-16">
 
-    <div class="mb-16">
-      <span class="manrope text-xs tracking-[0.3em] uppercase text-primary font-bold mb-4 block">Savoir-faire</span>
-      <h2 class="noto-serif text-4xl md:text-5xl font-bold">Expertise Technique</h2>
+  <!-- =====================================================
+       COMPOSANT : Expertises
+       ===================================================== -->
+  <section class="py-16 md:py-24 bg-surface-container-low" id="expertises">
+    <div class="container mx-auto px-6 md:px-16">
+
+      <div class="mb-12 md:mb-16">
+        <span class="manrope text-xs tracking-[0.3em] uppercase text-primary font-bold mb-4 block">Savoir-faire</span>
+        <h2 class="noto-serif text-3xl md:text-5xl font-bold">Expertise Technique</h2>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8" data-expertises></div>
+
+    </div>
+  </section>
+
+
+  <!-- =====================================================
+       COMPOSANT : Portfolio Carousel
+       ===================================================== -->
+  <section class="py-16 md:py-24 bg-surface overflow-hidden" id="portfolio">
+
+    <div class="px-6 md:px-16 mb-10 md:mb-16 flex justify-between items-end">
+      <div>
+        <span class="manrope text-xs tracking-[0.3em] uppercase text-primary font-bold mb-4 block">Portfolio</span>
+        <h2 class="noto-serif text-3xl md:text-5xl font-bold">Mes Réalisations</h2>
+      </div>
+      <div class="flex gap-3">
+        <button data-carousel="prev"
+                class="w-10 h-10 rounded-full border border-outline/20 flex items-center justify-center hover:bg-surface-container transition-colors"
+                aria-label="Précédent">
+          <span class="material-symbols-outlined text-base">west</span>
+        </button>
+        <button data-carousel="next"
+                class="w-10 h-10 rounded-full border border-outline/20 flex items-center justify-center hover:bg-surface-container transition-colors"
+                aria-label="Suivant">
+          <span class="material-symbols-outlined text-base">east</span>
+        </button>
+      </div>
     </div>
 
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8" data-expertises></div>
-
-  </div>
-</section>
-
-
-<!-- =====================================================
-     COMPOSANT : Portfolio Carousel
-     ===================================================== -->
-<section class="py-32 bg-surface-container-low overflow-hidden" id="portfolio">
-
-  <div class="px-8 md:px-16 mb-16 flex justify-between items-end">
-    <div>
-      <span class="manrope text-xs tracking-[0.3em] uppercase text-primary font-bold mb-4 block">Portfolio</span>
-      <h2 class="noto-serif text-4xl md:text-5xl font-bold">Mes Réalisations</h2>
+    <!-- Cartes générées par main.js -->
+    <div data-portfolio-carousel
+         class="flex gap-5 overflow-x-auto hide-scrollbar px-6 md:px-16 pb-10 snap-x snap-mandatory">
     </div>
-    <div class="flex gap-4">
-      <button data-carousel="prev"
-              class="w-10 h-10 rounded-full border border-outline/20 flex items-center justify-center hover:bg-surface transition-colors"
-              aria-label="Précédent">
-        <span class="material-symbols-outlined text-base">west</span>
-      </button>
-      <button data-carousel="next"
-              class="w-10 h-10 rounded-full border border-outline/20 flex items-center justify-center hover:bg-surface transition-colors"
-              aria-label="Suivant">
-        <span class="material-symbols-outlined text-base">east</span>
-      </button>
-    </div>
-  </div>
 
-  <!-- Cartes générées par main.js depuis SITE.projets dans data.js -->
-  <div data-portfolio-carousel
-       class="flex gap-6 overflow-x-auto hide-scrollbar px-8 md:px-16 pb-12 snap-x snap-mandatory">
-  </div>
-
-</section>
+  </section>
 
 
   <!-- =====================================================
        COMPOSANT : Contact
        ===================================================== -->
-  <section class="py-32 bg-surface" id="contact">
-    <div class="container mx-auto px-8 md:px-16">
+  <section class="py-16 md:py-32 bg-surface-container-low" id="contact">
+    <div class="container mx-auto px-6 md:px-16">
       <div class="max-w-4xl mx-auto text-center">
 
-        <h2 class="noto-serif text-5xl md:text-7xl font-bold mb-16">Parlons de votre projet</h2>
+        <h2 class="noto-serif text-4xl md:text-6xl lg:text-7xl font-bold mb-10 md:mb-16">
+          Parlons de votre projet
+        </h2>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-24">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-8 mb-16 md:mb-24">
 
           <a data-contact="telephone-href"
-             class="group p-12 bg-surface-container rounded-xl transition-all hover:bg-primary-container hover:text-on-primary-container">
-            <span class="material-symbols-outlined text-4xl mb-6 block text-primary group-hover:text-on-primary-container">call</span>
-            <span class="manrope block text-xs tracking-widests uppercase mb-2 opacity-60">Téléphone</span>
-            <span class="noto-serif text-2xl font-bold" data-contact="telephone"></span>
+             class="group p-8 md:p-12 bg-surface rounded-xl transition-all hover:bg-primary-container hover:text-on-primary-container">
+            <span class="material-symbols-outlined text-4xl mb-4 md:mb-6 block text-primary group-hover:text-on-primary-container">call</span>
+            <span class="manrope block text-xs tracking-widest uppercase mb-2 opacity-60">Téléphone</span>
+            <span class="noto-serif text-xl md:text-2xl font-bold" data-contact="telephone"></span>
           </a>
 
           <a data-contact="email-href"
-             class="group p-12 bg-surface-container rounded-xl transition-all hover:bg-primary-container hover:text-on-primary-container">
-            <span class="material-symbols-outlined text-4xl mb-6 block text-primary group-hover:text-on-primary-container">mail</span>
+             class="group p-8 md:p-12 bg-surface rounded-xl transition-all hover:bg-primary-container hover:text-on-primary-container">
+            <span class="material-symbols-outlined text-4xl mb-4 md:mb-6 block text-primary group-hover:text-on-primary-container">mail</span>
             <span class="manrope block text-xs tracking-widest uppercase mb-2 opacity-60">Email</span>
-            <span class="noto-serif text-lg md:text-2xl font-bold break-all" data-contact="email"></span>          
+            <span class="noto-serif text-base md:text-xl font-bold break-all" data-contact="email"></span>
           </a>
 
         </div>
 
-        <div class="flex items-center justify-center gap-3 text-on-surface-variant manrope">
+        <div class="flex items-center justify-center gap-3 text-on-surface-variant manrope mb-10">
           <span class="material-symbols-outlined">location_on</span>
           <span data-site="adresse"></span>
         </div>
 
-        <!-- Carte zone intervention -->
-        <div class="mt-12 rounded-xl overflow-hidden border border-outline/20">
-          <div id="map" style="height: 420px; width: 100%;"></div>
+        <!-- Carte -->
+        <div class="rounded-xl overflow-hidden border border-outline/20">
+          <div id="map" style="height: 380px; width: 100%;"></div>
         </div>
-        <p class="manrope text-xs text-on-surface-variant mt-3">
-          Zone d'intervention
-        </p>
+        <p class="manrope text-xs text-on-surface-variant mt-3">Zone d'intervention — rayon 50 km</p>
 
       </div>
     </div>
   </section>
 
-  <!-- =====================================================
-     COMPOSANT : Mentions légales (masqué par défaut)
-     ===================================================== -->
-  <div id="mentions-legales" class="hidden bg-surface py-24">
-    <div class="container mx-auto px-8 md:px-16 max-w-3xl">
 
-      <div class="flex justify-between items-center mb-16">
-        <h2 class="noto-serif text-4xl font-bold">Mentions légales</h2>
+  <!-- =====================================================
+       COMPOSANT : Mentions légales (masqué par défaut)
+       ===================================================== -->
+  <div id="mentions-legales" class="hidden bg-surface py-16 md:py-24">
+    <div class="container mx-auto px-6 md:px-16 max-w-3xl">
+
+      <div class="flex justify-between items-center mb-12 md:mb-16">
+        <h2 class="noto-serif text-3xl md:text-4xl font-bold">Mentions légales</h2>
         <button onclick="document.getElementById('mentions-legales').classList.add('hidden')"
                 class="manrope text-sm text-on-surface-variant hover:text-on-surface transition-colors flex items-center gap-2">
           <span class="material-symbols-outlined text-base">close</span>
@@ -260,65 +275,57 @@
         </button>
       </div>
 
-      <div class="space-y-12 manrope text-on-surface-variant leading-relaxed">
-
+      <div class="space-y-10 manrope text-on-surface-variant leading-relaxed">
         <div>
           <h3 class="noto-serif text-xl font-bold text-on-surface mb-4">Éditeur du site</h3>
           <p data-legal="proprietaire"></p>
           <p data-legal="siret-label"></p>
           <p data-legal="adresse"></p>
-          <p>Contact : <a data-contact="email-href" class="text-primary hover:underline" data-contact-text="email"></a></p>
+          <p>Contact : <a data-contact-text="email" class="text-primary hover:underline"></a></p>
         </div>
-
         <div>
           <h3 class="noto-serif text-xl font-bold text-on-surface mb-4">Hébergement</h3>
           <p data-legal="hebergeur"></p>
         </div>
-
         <div>
           <h3 class="noto-serif text-xl font-bold text-on-surface mb-4">Politique de confidentialité</h3>
           <p>Ce site vitrine ne collecte aucune donnée personnelle de manière automatique. Aucun cookie, aucun traceur, aucun outil d'analyse n'est utilisé.</p>
           <p class="mt-4">Les seules interactions possibles sont les clics sur le numéro de téléphone et l'adresse email, qui ouvrent les applications natives de votre appareil. Aucune donnée n'est transmise ni stockée par ce site.</p>
-          <p class="mt-4">Conformément au RGPD et à la loi Informatique et Libertés, vous disposez d'un droit d'accès, de rectification et de suppression de vos données en contactant : <a data-contact="email-href" class="text-primary hover:underline" data-contact-text="email"></a></p>
+          <p class="mt-4">Conformément au RGPD et à la loi Informatique et Libertés, vous disposez d'un droit d'accès, de rectification et de suppression de vos données en contactant : <a data-contact-text="email" class="text-primary hover:underline"></a></p>
         </div>
-
         <div>
           <h3 class="noto-serif text-xl font-bold text-on-surface mb-4">Propriété intellectuelle</h3>
           <p>L'ensemble du contenu de ce site (textes, images, logo) est la propriété exclusive de <span data-legal="proprietaire"></span>. Toute reproduction est interdite sans autorisation préalable.</p>
         </div>
-
       </div>
     </div>
   </div>
+
+
   <!-- =====================================================
        COMPOSANT : Footer
        ===================================================== -->
-  <footer class="bg-stone-100 w-full border-t border-stone-200/20">
-  <div class="flex flex-col md:flex-row justify-between items-center w-full px-8 py-12 gap-6">
-    <div class="text-lg font-serif text-stone-800 noto-serif" data-site="nom"></div>
+  <footer class="bg-stone-100 w-full border-t border-stone-200/40">
+    <div class="flex flex-col md:flex-row justify-between items-center w-full px-6 md:px-16 py-10 gap-5">
 
-    <div class="flex flex-col md:flex-row items-center gap-4">
-      <div class="manrope text-xs tracking-widest uppercase text-stone-500" data-site="copyright"></div>
-      <span class="hidden md:block text-stone-300">|</span>
-      <a href="#mentions-legales"
-         onclick="document.getElementById('mentions-legales').classList.remove('hidden')"
-         class="manrope text-xs tracking-widest uppercase text-stone-500 hover:text-[#825E3E] transition-all">
-        Mentions légales
-      </a>
-      <span class="hidden md:block text-stone-300">|</span>
-      <a href="#mentions-legales"
-         onclick="document.getElementById('mentions-legales').classList.remove('hidden')"
-         class="manrope text-xs tracking-widest uppercase text-stone-500 hover:text-[#825E3E] transition-all">
-        Confidentialité
-      </a>
+      <div class="text-base font-serif text-stone-800 noto-serif" data-site="nom"></div>
+
+      <div class="flex flex-wrap justify-center items-center gap-3 md:gap-4">
+        <div class="manrope text-xs tracking-widest uppercase text-stone-500" data-site="copyright"></div>
+        <span class="text-stone-300 hidden md:block">|</span>
+        <a href="#mentions-legales"
+           onclick="document.getElementById('mentions-legales').classList.remove('hidden')"
+           class="manrope text-xs tracking-widest uppercase text-stone-500 hover:text-[#825E3E] transition-all cursor-pointer">
+          Mentions légales
+        </a>
+      </div>
+
     </div>
-  </div>
-</footer>
+  </footer>
 
 
-  <!-- =====================================================
-       Scripts
-       ===================================================== -->
+  <!-- Scripts -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <script src="js/data.js"></script>
   <script src="js/main.js"></script>
 
