@@ -32,7 +32,7 @@ function injecterContact() {
 
 function injecterAPropos() {
   setHTML('[data-apropos="titre"]', SITE.apropos.titre);
-  $$('[data-apropos="photo"]').forEach(el => el.src = SITE.apropos.photo); // ← ajouter
+  $$('[data-apropos="photo"]').forEach(el => el.src = SITE.apropos.photo); 
   const container = $('[data-apropos="textes"]');
   if (container) container.innerHTML = SITE.apropos.textes.map(t => `<p>${t}</p>`).join('');
 }
@@ -52,7 +52,7 @@ function injecterPortfolio() {
   const carousel = $('[data-portfolio-carousel]');
   if (!carousel) return;
   carousel.innerHTML = SITE.projets.map(({ titre, description, src, alt }) => `
-    <div class="min-w-[70vw] md:min-w-[30vw] snap-center group cursor-pointer">
+    <div class="min-w-[70vw] md:min-w-[25vw] snap-center group cursor-pointer">
       <div class="relative aspect-[3/4] overflow-hidden rounded-xl mb-4">
         <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
              src="${src}" alt="${alt}" />

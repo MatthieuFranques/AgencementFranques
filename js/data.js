@@ -44,10 +44,10 @@ const SITE = {
   // --- Portfolio ---
   projets: [
     {
-      titre:       "Cuisine Contemporaine",
+      titre:       "Cuisine Récente",
       description: "Agencement complet & Électroménager intégré",
-      src: "assets/images/cuisine_belle.jpg",
-      alt: "Cuisine moderne minimaliste avec îlot central, façades en bois et plan de travail en pierre sombre",
+      src: "assets/images/cuisine_récente.jpg",
+      alt: "Cuisine moderne avec îlot central, meubles blancs laqués et électroménager encastré",
     },
     {
       titre:       "Rénovation d'Eau",
