@@ -3,8 +3,8 @@ const SITE = {
   logo: "assets/images/logo.png",
   // --- Identité ---
   nom:      "Agencement Franques",
-  slogan:   "Expert en Aménagement d'intérieur",
-  baseline: "Spécialiste de l'agencement global, je transforme vos espaces de vie grâce à une maîtrise complète des métiers du second œuvre et du sur-mesure.",
+  slogan:   "Expert en Agencement Intérieur & Extérieur",
+  baseline: "Spécialiste de l'agencement global, je conçois vos intérieurs sur-mesure et prolonge votre confort côté jardin. De la rénovation complète du second œuvre à la création de terrasses bois haut de gamme, je transforme chaque mètre carré en un lieu d'exception.",
   copyright: "© 2026 Agencement Franques",
 
   // --- Contact ---
@@ -73,11 +73,41 @@ const SITE = {
       src: "assets/images/volet.JPG",
       alt: "Grande volet blanc en bois sur-mesure",
     },
+    {
+      titre:       "Porte en bois sur-mesure",
+      description: "Bois massif & Finitions personnalisées",
+      src: "assets/images/porte_en_bois.jpg",
+      alt: "Porte en bois sur-mesure",
+    },
+    {
+      titre:       "Table basse en bois avec une dale en verre",
+      description: "Bois travaillé à la main & Design unique avec une finition naturelle",
+      src: "assets/images/table_basse.jpg",
+      alt: "Table basse en bois avec une dale en verre",
+    },
+    {
+      titre:       "Meuble TV en bois",
+      description: "",
+      src: "assets/images/meuble_tv.jpg",
+      alt: "Meuble TV en bois",
+    },
+    {
+      titre:       "Aménagement de chambre",
+      description: "",
+      src: "assets/images/maison.JPG",
+      alt: "Aménagement de chambre",
+    },
+    {
+      titre:       "Cuisine",
+      description: "",
+      src: "assets/images/cuisine_restoré.jpg",
+      alt: "Cuisine rénovée",
+    },
   ],
   carte: {
   lat:    44.4547,
   lng:    2.6244,
   rayon:  50000,
-  label:  "Bezonnes — Atelier"
+  label:  "Bezonnes"
   },
 };

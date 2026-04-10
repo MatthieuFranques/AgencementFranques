@@ -54,12 +54,13 @@
   <!-- =====================================================
        COMPOSANT : NavBar
        ===================================================== -->
-  <nav class="bg-stone-50/90 backdrop-blur-md fixed top-0 w-full z-50 border-b border-stone-200/40">
-  <div class="flex justify-between md:justify-start items-center w-full px-6 md:px-16 py-4 md:gap-16">
+ <nav id="navbar" class="bg-stone-50/90 backdrop-blur-md fixed top-0 w-full z-50 border-b border-stone-200/40 transition-all duration-300">
+  <div class="flex justify-between md:justify-start items-center w-full px-6 md:px-16 py-4 md:gap-16 transition-all duration-300" id="navbar-inner">
 
-    <img data-site="logo" 
+    <img data-site="logo"
          src="assets/logo.png"
-         class="h-10 lg:h-16 max-w-[140px] lg:max-w-[220px] w-auto object-contain transition-all" 
+         class="h-10 lg:h-16 max-w-[140px] lg:max-w-[220px] w-auto object-contain transition-all duration-300"
+         id="navbar-logo"
          alt="Logo" />
 
     <div class="hidden md:flex gap-10 items-center flex-1">
@@ -72,22 +73,26 @@
     <div class="flex items-center">
       <button id="mobile-menu-btn"
               class="md:hidden flex flex-col justify-center items-center w-10 h-10 gap-1.5"
-              aria-label="Ouvrir le menu">
+              aria-label="Ouvrir le menu"
+              aria-expanded="false">
+        <span class="burger-line block w-6 h-0.5 bg-stone-800 transition-all duration-300 origin-center"></span>
         <span class="burger-line block w-6 h-0.5 bg-stone-800 transition-all duration-300"></span>
-        <span class="burger-line block w-6 h-0.5 bg-stone-800 transition-all duration-300"></span>
-        <span class="burger-line block w-6 h-0.5 bg-stone-800 transition-all duration-300"></span>
+        <span class="burger-line block w-6 h-0.5 bg-stone-800 transition-all duration-300 origin-center"></span>
       </button>
     </div>
   </div>
 
   <div id="mobile-nav"
-       class="hidden flex-col items-end bg-stone-50/95 backdrop-blur-sm border-t border-stone-200/40 px-6 pb-6 pt-2 w-full"> 
+       style="display: none;"
+       class="flex-col items-end bg-stone-50/95 backdrop-blur-sm border-t border-stone-200/40 px-6 pb-6 pt-2 w-full">
     <a href="#apropos"    class="py-4 text-stone-700 text-lg manrope font-medium w-full text-right border-b border-stone-100/50">À Propos</a>
     <a href="#expertises" class="py-4 text-stone-700 text-lg manrope font-medium w-full text-right border-b border-stone-100/50">Expertises</a>
     <a href="#portfolio"  class="py-4 text-stone-700 text-lg manrope font-medium w-full text-right border-b border-stone-100/50">Réalisations</a>
     <a href="#contact"    class="py-4 text-stone-700 text-lg manrope font-medium w-full text-right">Contact</a>
   </div>
 </nav>
+
+
 
 
   <!-- =====================================================
@@ -106,8 +111,8 @@
         <span class="manrope text-xs md:text-sm tracking-[0.3em] uppercase text-primary font-bold mb-4 md:mb-6 block"
               data-site="slogan"></span>
         <h1 class="noto-serif text-5xl md:text-7xl lg:text-8xl font-bold text-on-surface leading-[1.1] mb-6 md:mb-8 tracking-tighter">
-          Rénover votre <br/>
-          <span class="text-primary italic">Intérieur</span>
+          Vos projets<br/>
+          <span class="text-primary italic">sur-mesure</span>
         </h1>
         <p class="manrope text-base md:text-lg text-on-surface-variant mb-8 md:mb-12 leading-relaxed"
            data-site="baseline"></p>
@@ -115,6 +120,22 @@
     </div>
   </header>
 
+
+  <!-- =====================================================
+       COMPOSANT : Expertises
+       ===================================================== -->
+  <section class="py-16 md:py-24 bg-surface-container-low" id="expertises">
+    <div class="container mx-auto px-6 md:px-16">
+
+      <div class="mb-12 md:mb-16">
+        <span class="manrope text-xs tracking-[0.3em] uppercase text-primary font-bold mb-4 block">Savoir-faire</span>
+        <h2 class="noto-serif text-3xl md:text-5xl font-bold">Expertise Technique</h2>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8" data-expertises></div>
+
+    </div>
+  </section>
 
   <!-- =====================================================
        COMPOSANT : Présentation (Mon Histoire)
@@ -151,23 +172,6 @@
   </div>
 </section>
 
-
-
-  <!-- =====================================================
-       COMPOSANT : Expertises
-       ===================================================== -->
-  <section class="py-16 md:py-24 bg-surface-container-low" id="expertises">
-    <div class="container mx-auto px-6 md:px-16">
-
-      <div class="mb-12 md:mb-16">
-        <span class="manrope text-xs tracking-[0.3em] uppercase text-primary font-bold mb-4 block">Savoir-faire</span>
-        <h2 class="noto-serif text-3xl md:text-5xl font-bold">Expertise Technique</h2>
-      </div>
-
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8" data-expertises></div>
-
-    </div>
-  </section>
 
 
   <!-- =====================================================

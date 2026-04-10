@@ -80,32 +80,51 @@ function initCarousel() {
 }
 
 function initCarte() {
-  if (!document.getElementById('map')) return;
-
-  const map = L.map('map', { scrollWheelZoom: false })
-    .setView([SITE.carte.lat, SITE.carte.lng], 9);
-
-  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    attribution: '© OpenStreetMap contributors'
-  }).addTo(map);
-
-  L.circle([SITE.carte.lat, SITE.carte.lng], {
-    radius:      SITE.carte.rayon,
+  const container = document.getElementById('map');
+  if (!container) return;
+ 
+  const { lat, lng, rayon, label } = SITE.carte;
+ 
+  const map = L.map(container, { scrollWheelZoom: false })
+    .setView([lat, lng], 9);
+ 
+  L.tileLayer(
+    'https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png',
+    {
+      attribution:
+        '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> ' +
+        '© <a href="https://carto.com/">CARTO</a>',
+      subdomains: 'abcd',
+      maxZoom: 19,
+    }
+  ).addTo(map);
+ 
+  L.circle([lat, lng], {
+    radius:      rayon,
     color:       '#674628',
     fillColor:   '#825e3e',
     fillOpacity: 0.12,
     weight:      2,
-    dashArray:   '6 4'
+    dashArray:   '6 4',
   }).addTo(map);
-
+ 
   const icon = L.divIcon({
-    html: '<div style="width:14px;height:14px;background:#674628;border:2px solid white;border-radius:50%;"></div>',
-    iconSize: [14,14], iconAnchor: [7,7], className: ''
+    html: `<div style="
+      width: 14px;
+      height: 14px;
+      background: #674628;
+      border: 2px solid white;
+      border-radius: 50%;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.3);
+    "></div>`,
+    iconSize:   [14, 14],
+    iconAnchor: [7, 7],
+    className:  '',
   });
-
-  L.marker([SITE.carte.lat, SITE.carte.lng], { icon })
+ 
+  L.marker([lat, lng], { icon })
     .addTo(map)
-    .bindPopup(`<strong>${SITE.carte.label}</strong>`)
+    .bindPopup(`<strong>${label}</strong>`)
     .openPopup();
 }
 
@@ -121,6 +140,63 @@ function injecterLegal() {
   });
 }
 
+// ── Interactions ──────────────────────────────────────
+ 
+function initNavbar() {
+  const btn       = $('#mobile-menu-btn');
+  const mobileNav = $('#mobile-nav');
+  if (!btn || !mobileNav) return;
+
+  const lines = btn.querySelectorAll('.burger-line');
+
+  function closeMenu() {
+    mobileNav.style.display  = 'none';
+    btn.setAttribute('aria-expanded', 'false');
+    lines[0].style.transform = '';
+    lines[1].style.opacity   = '';
+    lines[2].style.transform = '';
+  }
+
+  function openMenu() {
+    mobileNav.style.display  = 'flex';
+    btn.setAttribute('aria-expanded', 'true');
+    lines[0].style.transform = 'translateY(8px) rotate(45deg)';
+    lines[1].style.opacity   = '0';
+    lines[2].style.transform = 'translateY(-8px) rotate(-45deg)';
+  }
+
+  btn.addEventListener('click', () => {
+    btn.getAttribute('aria-expanded') === 'true' ? closeMenu() : openMenu();
+  });
+
+  mobileNav.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', closeMenu);
+  });
+
+  // Rétrécissement au scroll (desktop uniquement)
+  const navbar      = $('#navbar');
+  const navbarInner = $('#navbar-inner');
+  const navbarLogo  = $('#navbar-logo');
+
+  const isMobile = () => window.innerWidth < 768;
+
+  window.addEventListener('scroll', () => {
+    if (isMobile()) return;
+
+    if (window.scrollY > 60) {
+      navbar?.classList.add('shadow-sm');
+      navbarInner?.classList.replace('py-4', 'py-2');
+      navbarLogo?.classList.replace('h-10', 'h-8');
+      navbarLogo?.classList.replace('lg:h-16', 'lg:h-10');
+    } else {
+      navbar?.classList.remove('shadow-sm');
+      navbarInner?.classList.replace('py-2', 'py-4');
+      navbarLogo?.classList.replace('h-8', 'h-10');
+      navbarLogo?.classList.replace('lg:h-10', 'lg:h-16');
+    }
+  });
+}
+ 
 
 // ── Init ──────────────────────────────────────────────
 
@@ -133,5 +209,6 @@ document.addEventListener('DOMContentLoaded', () => {
   initMenuMobile();
   initCarousel();
   initCarte();
+  initNavbar();
   injecterLegal();
 });
