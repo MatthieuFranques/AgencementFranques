@@ -3,8 +3,8 @@ const SITE = {
   logo: "assets/images/logo.png",
   // --- Identité ---
   nom:      "Agencement Franques",
-  slogan:   "Expert en Agencement Intérieur & Extérieur",
-  baseline: "Spécialiste de l'agencement global, je conçois vos intérieurs sur-mesure et prolonge votre confort côté jardin. De la rénovation complète du second œuvre à la création de terrasses bois haut de gamme, je transforme chaque mètre carré en un lieu d'exception.",
+  slogan:   "Expert en Agencement Intérieur ", //& Extérieur
+  baseline: "Spécialiste en agencement sur-mesure et menuiserie, je conçois vos espaces de vie — cuisines, salles de bain, rangements — et vos terrasses en bois. De la rénovation à la création, je transforme chaque mètre carré en un lieu d'exception.",
   copyright: "© 2026 Agencement Franques",
 
   // --- Contact ---
@@ -16,7 +16,7 @@ const SITE = {
   
   legal: {
   proprietaire:  "Christophe Franques",
-  siret:         "XXX XXX XXX XXXXX",
+  siret:         "51203825800012",
   adresseLegale: "12340 Bezonnes, France",
   hebergeur:     "Vercel Inc., 340 Pine Street, San Francisco, CA 94104, USA",
   },
@@ -28,8 +28,8 @@ const SITE = {
     titre:    "Mon histoire",
     photo: "assets/images/portrait.jpg",
     textes: [
-      "Notre bureau d'études et nos artisans partenaires interviennent pour repenser intégralement vos volumes. De la redistribution des pièces à la pose de finitions haut de gamme, nous assurons une gestion de projet fluide.",
-      "Nous allions la rigueur technique du bâtiment à l'élégance de l'ébénisterie pour créer des intérieurs cohérents, fonctionnels et durables."
+      "Plus de 15 ans de savoir-faire au service de vos projets.",
+      "Depuis 2009, j'accompagne mes clients pour transformer leurs rêves en réalisations concrètes. Menuisier de formation, j'ai bâti mon expertise sur le terrain, développant au fil des années une polyvalence qui me permet aujourd'hui de maîtriser chaque étape de votre agencement. Mon exigence reste la même : allier la passion du bois à la rigueur de la rénovation pour créer des lieux qui vous ressemblent."
     ],
   },
   // --- Expertises (carte compétences) ---
