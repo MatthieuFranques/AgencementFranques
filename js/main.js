@@ -32,7 +32,7 @@ function injecterContact() {
 
 function injecterAPropos() {
   setHTML('[data-apropos="titre"]', SITE.apropos.titre);
-  $$('[data-apropos="photo"]').forEach(el => el.src = SITE.apropos.photo); 
+  $$('[data-apropos="photo"]').forEach(el => { el.src = SITE.apropos.photo; el.loading = 'lazy'; });
   const container = $('[data-apropos="textes"]');
   if (container) container.innerHTML = SITE.apropos.textes.map(t => `<p>${t}</p>`).join('');
 }
@@ -55,7 +55,7 @@ function injecterPortfolio() {
     <div class="min-w-[70vw] md:min-w-[25vw] snap-center group cursor-pointer">
       <div class="relative aspect-[3/4] overflow-hidden rounded-xl mb-4">
         <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-             src="${src}" alt="${alt}" />
+             src="${src}" alt="${alt}" loading="lazy" />
         <div class="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition-colors"></div>
       </div>
       <h4 class="noto-serif text-lg font-bold mb-1">${titre}</h4>
@@ -79,15 +79,12 @@ function initCarousel() {
   $('[data-carousel="next"]')?.addEventListener('click', () => carousel?.scrollBy({ left:  SCROLL, behavior: 'smooth' }));
 }
 
-function initCarte() {
-  const container = document.getElementById('map');
-  if (!container) return;
- 
+function renderCarte(container) {
   const { lat, lng, rayon, label } = SITE.carte;
- 
+
   const map = L.map(container, { scrollWheelZoom: false })
     .setView([lat, lng], 9);
- 
+
   L.tileLayer(
     'https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png',
     {
@@ -98,7 +95,7 @@ function initCarte() {
       maxZoom: 19,
     }
   ).addTo(map);
- 
+
   L.circle([lat, lng], {
     radius:      rayon,
     color:       '#674628',
@@ -107,7 +104,7 @@ function initCarte() {
     weight:      2,
     dashArray:   '6 4',
   }).addTo(map);
- 
+
   const icon = L.divIcon({
     html: `<div style="
       width: 14px;
@@ -121,11 +118,33 @@ function initCarte() {
     iconAnchor: [7, 7],
     className:  '',
   });
- 
+
   L.marker([lat, lng], { icon })
     .addTo(map)
     .bindPopup(`<strong>${label}</strong>`)
     .openPopup();
+}
+
+function initCarte() {
+  const container = document.getElementById('map');
+  if (!container) return;
+
+  const observer = new IntersectionObserver((entries) => {
+    if (!entries[0].isIntersecting) return;
+    observer.disconnect();
+
+    const css = document.createElement('link');
+    css.rel = 'stylesheet';
+    css.href = 'assets/css/leaflet.css';
+    document.head.appendChild(css);
+
+    const js = document.createElement('script');
+    js.src = 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.js';
+    js.onload = () => renderCarte(container);
+    document.head.appendChild(js);
+  }, { rootMargin: '300px' });
+
+  observer.observe(container);
 }
 
 function injecterLegal() {
