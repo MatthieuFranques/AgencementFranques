@@ -114,9 +114,10 @@ function renderCarte(container) {
       border-radius: 50%;
       box-shadow: 0 1px 4px rgba(0,0,0,0.3);
     "></div>`,
-    iconSize:   [14, 14],
-    iconAnchor: [7, 7],
-    className:  '',
+    iconSize:    [14, 14],
+    iconAnchor:  [7, 7],
+    popupAnchor: [0, -10],
+    className:   '',
   });
 
   L.marker([lat, lng], { icon })

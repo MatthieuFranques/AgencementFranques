@@ -10,8 +10,8 @@ const SITE = {
   // --- Contact ---
   telephone:     "06 72 13 05 20",
   telephoneHref: "tel:+33672130520",
-  email:         "agencement.franques@gmail.com",
-  emailHref:     "mailto:agencement.franques@gmail.com",
+  email:         "agencement.franques@orange.fr",
+  emailHref:     "mailto:agencement.franques@orange.fr",
   adresse:       "Aveyron, France",
 
   legal: {
