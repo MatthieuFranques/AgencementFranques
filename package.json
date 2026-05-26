@@ -1,0 +1,27 @@
+{
+  "name": "agencementfranques",
+  "version": "1.0.0",
+  "description": "![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)\r ![TailwindCSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)\r ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)\r ![Vercel](https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)",
+  "main": "index.js",
+  "scripts": {
+    "build": "tailwindcss -i assets/css/tailwind-input.css -o assets/css/tailwind.output.css --minify",
+    "watch": "tailwindcss -i assets/css/tailwind-input.css -o assets/css/tailwind.output.css --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MatthieuFranques/AgencementFranques.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/MatthieuFranques/AgencementFranques/issues"
+  },
+  "homepage": "https://github.com/MatthieuFranques/AgencementFranques#readme",
+  "devDependencies": {
+    "@tailwindcss/container-queries": "^0.1.1",
+    "@tailwindcss/forms": "^0.5.11",
+    "tailwindcss": "^3.4.19"
+  }
+}
