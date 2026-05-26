@@ -13,7 +13,7 @@ const SITE = {
   email:         "agencement.franques@gmail.com",
   emailHref:     "mailto:agencement.franques@gmail.com",
   adresse:       "Aveyron, France",
-  
+
   legal: {
   proprietaire:  "Christophe Franques",
   siret:         "51203825800012",
@@ -26,7 +26,7 @@ const SITE = {
   // --- Section "À propos" ---
   apropos: {
     titre:    "Mon histoire",
-    photo: "assets/images/portrait.jpg",
+    photo: "assets/images/portrait.webp",
     textes: [
       "Plus de 15 ans de savoir-faire au service de vos projets.",
       "Depuis 2009, j'accompagne mes clients pour transformer leurs rêves en réalisations concrètes. Menuisier de formation, j'ai bâti mon expertise sur le terrain, développant au fil des années une polyvalence qui me permet aujourd'hui de maîtriser chaque étape de votre agencement. Mon exigence reste la même : allier la passion du bois à la rigueur de la rénovation pour créer des lieux qui vous ressemblent."
@@ -46,13 +46,13 @@ const SITE = {
     {
       titre:       "Cuisine Récente",
       description: "Agencement complet & Électroménager intégré",
-      src: "assets/images/cuisine_récente.jpg",
+      src: "assets/images/cuisine_récente.webp",
       alt: "Cuisine moderne avec îlot central, meubles blancs laqués et électroménager encastré",
     },
     {
       titre:       "Rénovation d'Eau",
       description: "Optimisation d'espace & Finitions haut de gamme",
-      src: "assets/images/douche.JPG",
+      src: "assets/images/douche.webp",
       alt: "Salle de bain rénovée avec carrelage texturé, douche à l'italienne et meuble vasque sur mesure",
     },
     {
@@ -64,43 +64,43 @@ const SITE = {
     {
       titre:       "Escalier d'angle sur-mesure",
       description: "En bois",
-      src: "assets/images/escalier.JPG",
+      src: "assets/images/escalier.webp",
       alt: "escalier d'angle sur-mesure en bois",
     },
     {
       titre:       "Volet en bois sur-mesure",
       description: "",
-      src: "assets/images/volet.JPG",
+      src: "assets/images/volet.webp",
       alt: "Grande volet blanc en bois sur-mesure",
     },
     {
       titre:       "Porte en bois sur-mesure",
       description: "Bois massif & Finitions personnalisées",
-      src: "assets/images/porte_en_bois.jpg",
+      src: "assets/images/porte_en_bois.webp",
       alt: "Porte en bois sur-mesure",
     },
     {
       titre:       "Table basse en bois avec une dale en verre",
       description: "Bois travaillé à la main & Design unique avec une finition naturelle",
-      src: "assets/images/table_basse.jpg",
+      src: "assets/images/table_basse.webp",
       alt: "Table basse en bois avec une dale en verre",
     },
     {
       titre:       "Meuble TV en bois",
       description: "",
-      src: "assets/images/meuble_tv.jpg",
+      src: "assets/images/meuble_tv.webp",
       alt: "Meuble TV en bois",
     },
     {
       titre:       "Aménagement de chambre",
       description: "",
-      src: "assets/images/maison.JPG",
+      src: "assets/images/maison.webp",
       alt: "Aménagement de chambre",
     },
     {
       titre:       "Cuisine",
       description: "",
-      src: "assets/images/cuisine_restoré.jpg",
+      src: "assets/images/cuisine_restoré.webp",
       alt: "Cuisine rénovée",
     },
   ],

@@ -16,7 +16,11 @@
   <link rel="canonical" href="https://www.agencement-franques.fr/" />
 
   <!-- Preload ressources critiques (LCP) -->
-  <link rel="preload" as="image" href="assets/images/bg.webp" fetchpriority="high" />
+  <link rel="preload" as="image"
+        href="assets/images/bg-1920.webp"
+        imagesrcset="assets/images/bg-640.webp 640w, assets/images/bg-1280.webp 1280w, assets/images/bg-1920.webp 1920w"
+        imagesizes="100vw"
+        fetchpriority="high" />
   <link rel="preload" as="font" href="assets/fonts/noto-serif-latin.woff2" type="font/woff2" crossorigin />
 
   <!-- Open Graph -->
@@ -147,8 +151,13 @@
   <header id="hero" class="relative min-h-screen flex items-center pt-20 overflow-hidden">
     <div class="absolute inset-0 z-0">
       <img class="w-full h-full object-cover grayscale-[20%] contrast-[110%]"
-           src="assets/images/bg.webp"
-           alt="Vue d'ensemble d'un intérieur rénové" />
+           src="assets/images/bg-1920.webp"
+           srcset="assets/images/bg-640.webp 640w,
+                   assets/images/bg-1280.webp 1280w,
+                   assets/images/bg-1920.webp 1920w"
+           sizes="100vw"
+           alt="Vue d'ensemble d'un intérieur rénové"
+           fetchpriority="high" loading="eager" />
       <div class="absolute inset-0 bg-gradient-to-r from-surface via-surface/60 to-transparent"></div>
     </div>
 
