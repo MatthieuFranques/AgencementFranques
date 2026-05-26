@@ -58,7 +58,7 @@ const SITE = {
     {
       titre:       "Terrasse extérieure",
       description: "Bois exotique & Aménagement paysager",
-      src: "assets/images/terrace.JPG",
+      src: "assets/images/terrace.webp",
       alt: "Grande terrasse en bois",
     },
     {
