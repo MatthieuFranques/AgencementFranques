@@ -316,13 +316,20 @@ function renderCarte(container) {
       autoPan:      false,
     });
 
-  // Le conteneur n'est pas toujours dimensionné au 1er rendu (observer + animation)
-  // → recadrage fiable sur Bezonnes une fois le layout posé, puis popup.
-  requestAnimationFrame(() => {
+  // Le conteneur n'a pas toujours sa taille au 1er rendu (observer + layout PC/mobile).
+  // → on recadre sur Bezonnes à chaque changement de taille du conteneur, puis popup.
+  const recadrer = () => {
     map.invalidateSize();
     map.fitBounds(cercle.getBounds(), { padding: [24, 24] });
     marker.openPopup();
-  });
+  };
+
+  requestAnimationFrame(recadrer);
+
+  if ('ResizeObserver' in window) {
+    new ResizeObserver(() => recadrer()).observe(container);
+  }
+  window.addEventListener('resize', recadrer);
 }
 
 function initCarte() {
