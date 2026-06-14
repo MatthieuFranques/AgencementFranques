@@ -89,16 +89,7 @@
   }
   </script>
 
-  <!-- Préconnexion pour Material Symbols (Google) -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-
   <link rel="stylesheet" href="assets/css/tailwind.output.css" />
-  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,300,0,0&icon_names=call,close,east,location_on,mail,west&display=swap"
-        onload="this.onload=null;this.rel='stylesheet'" />
-  <noscript>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,300,0,0&icon_names=call,close,east,location_on,mail,west&display=swap" />
-  </noscript>
   <link rel="stylesheet" href="assets/css/main.css" />
   <link rel="icon" type="image/png" href="assets/logo.png" />
 
@@ -245,26 +236,68 @@
         <span class="manrope text-xs tracking-[0.3em] uppercase text-primary font-bold mb-4 block">Portfolio</span>
         <h2 class="noto-serif text-3xl md:text-5xl font-bold">Mes Réalisations</h2>
       </div>
-      <div class="flex gap-3">
+      <div class="hidden md:flex gap-3">
         <button data-carousel="prev"
                 class="w-10 h-10 rounded-full border border-outline/20 flex items-center justify-center hover:bg-surface-container transition-colors"
                 aria-label="Précédent">
-          <span class="material-symbols-outlined text-base">west</span>
+          <svg viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5" aria-hidden="true"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20z"/></svg>
         </button>
         <button data-carousel="next"
                 class="w-10 h-10 rounded-full border border-outline/20 flex items-center justify-center hover:bg-surface-container transition-colors"
                 aria-label="Suivant">
-          <span class="material-symbols-outlined text-base">east</span>
+          <svg viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5" aria-hidden="true"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg>
         </button>
       </div>
     </div>
 
+    <!-- Filtres par type (générés par main.js) -->
+    <div data-portfolio-filtres
+         class="flex gap-2 overflow-x-auto hide-scrollbar snap-x px-6 md:px-16 mb-8 md:flex-wrap">
+    </div>
+
     <!-- Cartes générées par main.js -->
     <div data-portfolio-carousel
-         class="flex gap-5 overflow-x-auto hide-scrollbar px-6 md:px-16 pb-10 snap-x snap-mandatory">
+         class="flex gap-5 overflow-x-auto hide-scrollbar px-6 md:px-16 pb-6 snap-x snap-mandatory scroll-smooth">
+    </div>
+
+    <!-- Points de pagination (générés par main.js) -->
+    <div data-portfolio-dots
+         class="overflow-hidden mx-auto mt-2 max-w-[160px] h-4 flex items-center justify-center">
     </div>
 
   </section>
+
+  <!-- =====================================================
+       COMPOSANT : Lightbox plein écran
+       ===================================================== -->
+  <div data-lightbox
+       class="hidden fixed inset-0 z-[100] bg-black/95 items-center justify-center select-none"
+       role="dialog" aria-modal="true" aria-label="Visionneuse photo">
+
+    <button data-lb-close
+            class="absolute top-4 right-4 w-11 h-11 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition-colors"
+            aria-label="Fermer">
+      <svg viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6" aria-hidden="true"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+    </button>
+
+    <button data-lb-prev
+            class="absolute left-2 md:left-6 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition-colors"
+            aria-label="Précédent">
+      <svg viewBox="0 0 24 24" fill="currentColor" class="w-7 h-7" aria-hidden="true"><path d="M15.41 7.41 14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
+    </button>
+
+    <button data-lb-next
+            class="absolute right-2 md:right-6 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition-colors"
+            aria-label="Suivant">
+      <svg viewBox="0 0 24 24" fill="currentColor" class="w-7 h-7" aria-hidden="true"><path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+    </button>
+
+    <figure class="flex flex-col items-center gap-4 px-4 max-w-[92vw] max-h-[90vh]">
+      <img data-lb-img src="" alt=""
+           class="max-w-full max-h-[78vh] object-contain rounded-lg shadow-2xl" />
+      <figcaption data-lb-caption class="text-white text-center"></figcaption>
+    </figure>
+  </div>
 
 
   <!-- =====================================================
@@ -282,14 +315,14 @@
 
           <a data-contact="telephone-href"
              class="group p-8 md:p-12 bg-surface rounded-xl transition-all hover:bg-primary-container hover:text-on-primary-container">
-            <span class="material-symbols-outlined text-4xl mb-4 md:mb-6 block text-primary group-hover:text-on-primary-container">call</span>
+            <svg viewBox="0 0 24 24" fill="currentColor" class="w-9 h-9 mb-4 md:mb-6 block text-primary group-hover:text-on-primary-container" aria-hidden="true"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
             <span class="manrope block text-xs tracking-widest uppercase mb-2 opacity-60">Téléphone</span>
             <span class="noto-serif text-xl md:text-2xl font-bold" data-contact="telephone"></span>
           </a>
 
           <a data-contact="email-href"
              class="group p-8 md:p-12 bg-surface rounded-xl transition-all hover:bg-primary-container hover:text-on-primary-container">
-            <span class="material-symbols-outlined text-4xl mb-4 md:mb-6 block text-primary group-hover:text-on-primary-container">mail</span>
+            <svg viewBox="0 0 24 24" fill="currentColor" class="w-9 h-9 mb-4 md:mb-6 block text-primary group-hover:text-on-primary-container" aria-hidden="true"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg>
             <span class="manrope block text-xs tracking-widest uppercase mb-2 opacity-60">Email</span>
             <span class="noto-serif text-base md:text-xl font-bold break-all" data-contact="email"></span>
           </a>
@@ -297,7 +330,7 @@
         </div>
 
         <div class="flex items-center justify-center gap-3 text-on-surface-variant manrope mb-10">
-          <span class="material-symbols-outlined">location_on</span>
+          <svg viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6 shrink-0" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
           <span data-site="adresse"></span>
         </div>
 
@@ -322,7 +355,7 @@
         <h2 class="noto-serif text-3xl md:text-4xl font-bold">Mentions légales</h2>
         <button onclick="document.getElementById('mentions-legales').classList.add('hidden')"
                 class="manrope text-sm text-on-surface-variant hover:text-on-surface transition-colors flex items-center gap-2">
-          <span class="material-symbols-outlined text-base">close</span>
+          <svg viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4" aria-hidden="true"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
           Fermer
         </button>
       </div>
