@@ -243,7 +243,7 @@ const SITE = {
       alt: "Fenêtre PVC à deux vantaux et petits carreaux",
     },
     {
-      titre:       "Fenêtre alu & vue jardin",
+      titre:       "Bévitre aluminium & encadrement pierre",
       description: "Menuiserie aluminium & Encadrement pierre",
       type:        "Menuiserie",
       src: "assets/images/fenetre_alu_vue_jardin.webp",
