@@ -373,6 +373,17 @@ const SITE = {
   lat:    44.4547,
   lng:    2.6244,
   rayon:  50000,
-  label:  "Bezonnes"
+  label:  "Bezonnes",
+  // Villes voisines affichées sur la carte (nom + point). Coords approximatives : à ajuster si besoin.
+  villes: [
+    { nom: "Rodez",                     lat: 44.349, lng: 2.575 },
+    // { nom: "Espalion",                  lat: 44.521, lng: 2.764 },
+    // { nom: "Bozouls",                   lat: 44.471, lng: 2.723 },
+    // { nom: "Marcillac-Vallon",          lat: 44.474, lng: 2.464 },
+    // { nom: "Laissac",                   lat: 44.382, lng: 2.821 },
+    // { nom: "Decazeville",               lat: 44.561, lng: 2.249 },
+    // { nom: "Villefranche-de-Rouergue",  lat: 44.353, lng: 2.034 },
+    // { nom: "Sévérac-d'Aveyron",         lat: 44.325, lng: 3.065 },
+  ],
   },
 };

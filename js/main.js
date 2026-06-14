@@ -273,12 +273,9 @@ function renderCarte(container) {
   }).setView([lat, lng], 9);
 
   L.tileLayer(
-    'https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png',
+    'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
     {
-      attribution:
-        '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> ' +
-        '© <a href="https://carto.com/">CARTO</a>',
-      subdomains: 'abcd',
+      attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
       maxZoom: 19,
     }
   ).addTo(map);
@@ -307,21 +304,25 @@ function renderCarte(container) {
     className:   '',
   });
 
-  const marker = L.marker([lat, lng], { icon })
+  // Point central Bezonnes + nom (sans popup)
+  L.marker([lat, lng], { icon })
     .addTo(map)
-    .bindPopup(`<strong>${label}</strong>`, {
-      closeButton:  false,
-      autoClose:    false,
-      closeOnClick: false,
-      autoPan:      false,
-    });
+    .bindTooltip(label, { permanent: true, direction: 'right', offset: [6, 0], className: 'ville-label ville-label--centre' });
+
+  // Villes voisines (point + nom permanent), éditables dans data.js
+  (SITE.carte.villes || []).forEach(v => {
+    L.circleMarker([v.lat, v.lng], {
+      radius: 3, color: '#674628', fillColor: '#674628', fillOpacity: 1, weight: 0,
+    })
+      .addTo(map)
+      .bindTooltip(v.nom, { permanent: true, direction: 'right', offset: [4, 0], className: 'ville-label' });
+  });
 
   // Le conteneur n'a pas toujours sa taille au 1er rendu (observer + layout PC/mobile).
-  // → on recadre sur Bezonnes à chaque changement de taille du conteneur, puis popup.
+  // → on recadre sur Bezonnes (centre du cercle) à chaque changement de taille.
   const recadrer = () => {
     map.invalidateSize();
     map.fitBounds(cercle.getBounds(), { padding: [24, 24] });
-    marker.openPopup();
   };
 
   requestAnimationFrame(recadrer);

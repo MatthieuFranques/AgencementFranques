@@ -33,6 +33,26 @@
 .noto-serif  { font-family: 'Noto Serif', serif; }
 .manrope     { font-family: 'Manrope', sans-serif; }
 
+/* --- Labels villes sur la carte --- */
+.leaflet-tooltip.ville-label {
+  background: rgba(250, 249, 246, 0.85);
+  border: none;
+  box-shadow: none;
+  padding: 0 4px;
+  border-radius: 4px;
+  color: #1a1c1a;
+  font-family: 'Manrope', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+.leaflet-tooltip.ville-label--centre {
+  font-size: 13px;
+  font-weight: 700;
+  color: #674628;
+}
+.leaflet-tooltip.ville-label::before { display: none; } /* masque la flèche */
+
 /* --- Scrollbar masquée (carousel) --- */
 .hide-scrollbar::-webkit-scrollbar { display: none; }
 .hide-scrollbar {
