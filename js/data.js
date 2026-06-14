@@ -236,11 +236,11 @@ const SITE = {
       alt: "Porte en bois massif ornée d'une croix occitane sculptée",
     },
     {
-      titre:       "Fenêtre bois petits carreaux",
-      description: "Menuiserie extérieure & Petits-bois sur-mesure",
+      titre:       "Fenêtre PVC petits carreaux",
+      description: "Menuiserie PVC & Vitrage à petits carreaux",
       type:        "Menuiserie",
-      src: "assets/images/fenetre_bois_petits_carreaux.webp",
-      alt: "Fenêtre en bois blanc à deux vantaux et petits carreaux",
+      src: "assets/images/fenetre_pvc_petits_carreaux.webp",
+      alt: "Fenêtre PVC à deux vantaux et petits carreaux",
     },
     {
       titre:       "Fenêtre alu & vue jardin",
