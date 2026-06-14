@@ -260,8 +260,17 @@ function initMenuMobile() {
 function renderCarte(container) {
   const { lat, lng, rayon, label } = SITE.carte;
 
-  const map = L.map(container, { scrollWheelZoom: false })
-    .setView([lat, lng], 9);
+  // Carte verrouillée (statique) : aucune interaction → pas de bug de pan/zoom
+  const map = L.map(container, {
+    zoomControl:     false,
+    dragging:        false,
+    scrollWheelZoom: false,
+    doubleClickZoom: false,
+    boxZoom:         false,
+    keyboard:        false,
+    touchZoom:       false,
+    tap:             false,
+  }).setView([lat, lng], 9);
 
   L.tileLayer(
     'https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png',
@@ -274,7 +283,7 @@ function renderCarte(container) {
     }
   ).addTo(map);
 
-  L.circle([lat, lng], {
+  const cercle = L.circle([lat, lng], {
     radius:      rayon,
     color:       '#674628',
     fillColor:   '#825e3e',
@@ -298,10 +307,22 @@ function renderCarte(container) {
     className:   '',
   });
 
-  L.marker([lat, lng], { icon })
+  const marker = L.marker([lat, lng], { icon })
     .addTo(map)
-    .bindPopup(`<strong>${label}</strong>`)
-    .openPopup();
+    .bindPopup(`<strong>${label}</strong>`, {
+      closeButton:  false,
+      autoClose:    false,
+      closeOnClick: false,
+      autoPan:      false,
+    });
+
+  // Le conteneur n'est pas toujours dimensionné au 1er rendu (observer + animation)
+  // → recadrage fiable sur Bezonnes une fois le layout posé, puis popup.
+  requestAnimationFrame(() => {
+    map.invalidateSize();
+    map.fitBounds(cercle.getBounds(), { padding: [24, 24] });
+    marker.openPopup();
+  });
 }
 
 function initCarte() {
